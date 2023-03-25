@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# bOOn
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##### This app lets users keep track of gift ideas and share personal gift ideas with others. Users will be able to add a person they wish to make a gift registry. Users will be able to see the list of gift ideas per person. They will click on one and view an individual gift, delete and update that gift as well as check it off as purchased.
 
-## Available Scripts
 
-In the project directory, you can run:
+[Trello Board Link]()
 
-### `npm start`
+### Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- JavaScript
+- HTML
+- CSS/SCSS
+- Vue
+- Mongoose
+- MongoDB
+- render.com
+- Netlify
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Routes & Components
 
-### `npm test`
+```
+App --> Header 
+App --> Outlet 
+Outlet -- "/" --> Index
+Outlet -- "/places/:id" --> Show
+Outlet -- "/places/create" --> createAction
+Outlet -- "/places/update/:id" --> updateAction
+Outlet -- "/places/delete/:id" --> deleteAction
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Route | Element | Loader | Action | Summary |
+| ----- | ------- | ------ | ------ | ------- |
+| /     | Index   | indexLoader |   | Loads up list of individuals  |         |
+| /gifts/:id | Show | showLoader |  | Loads up an individual's gift registry | 
+| /gifts/create | Create|        | createAction | Handles submission of create form for one gift idea | 
+| /gifts/update/:id | Update  |   | updateAction | Handles submission of update form for one gift idea  | 
+| /gifts/delete/:id | Delete  |   | deleteAction | Handles submission of delete form for one gift idea |  
 
-### `npm run build`
+### User Stories
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- As a user, I want to be able to see a list of my Groups/ People.
+- As a user, I want to click on one of the people and it will direct me to the show page where it list gift ideas.
+- As a user, I want to be able to add, edit, and delete gift ideas.
+- As a user, I want to be able to check off gifts that have been purchased or delete gifts.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Schema
 
-### `npm run eject`
+<img src="https://i.imgur.com/9PSt2mi.png" width="300px">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Wireframes/Mockups
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Index Page - Desktop and mobile
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="https://i.imgur.com/asebM8O.png" width="400px">
+<img src="https://i.imgur.com/Kt930s3.png" width="400px">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Show Page - Desktop and mobile
 
-## Learn More
+<img src="https://i.imgur.com/V9daAKs.png" width="400px">
+<img src="https://i.imgur.com/avtZ8T6.png" width="400px">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Weekly Plan
 
-### Code Splitting
+| Week | Goal |
+|-----|------|
+| 3/1 - 3/4 | Finalize project idea and new tech. Work on things needed to get project approved. Set up project and create main and dev branch in GitHub.|
+| 3/5 - 3/11 | Complete Schema with fully deployed backend.|
+| 3/12 - 3/18 | Study new tech and implement into frontend. |
+| 3/19 - 3/25 | Work on styling the index and show page. |
+| 3/26 - 3/31 | Finalize styling and test app to make final adjustments. |
+| 4/1 | Present Capstone! |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Link to Project
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Deployed Backend Page]()
+[Deployed Frontend Page]()
