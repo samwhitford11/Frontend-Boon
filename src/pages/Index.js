@@ -5,8 +5,7 @@ import Post from "../components/Post";
 
 const Index = (props) => {
     const people = useLoaderData()
-    console.log("people_id", people._id)
-
+    
     return <>
 
   <div>
@@ -20,11 +19,13 @@ const Index = (props) => {
              <Form action={`/delete/${post._id}`} method="post">
                 <button>Delete</button>
              </Form>
+             <Form action={`/update/${post._id}`} method="post">
+                <input type="text" name="name" placeholder='Name'/>
+                <button>Update</button>
+             </Form>
         </div>
        ) 
-    })}
-       
-        
+    })}  
    </div> 
     
     <div>

@@ -31,19 +31,18 @@ export async function UpdateAction ({
         const formData = await request.formData()
 
     // construct request body
-    const newPerson = {
+    const updatedPerson = {
         name: formData.get("name"),
-        // ask about whether or not you'll need gifts heer
     }
     // send request to backend
-    await fetch(url + params.id + "/",
+    await fetch(url + "/people/" + params.id + "/",
     {
         method: "put",
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(newPerson)
+        body: JSON.stringify(updatedPerson)
     })
     // redirect back to index page
     return redirect("/")
