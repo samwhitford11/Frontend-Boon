@@ -12,3 +12,10 @@ export async function ShowLoader ({ params }){
     console.log("SHOW LOADER:", gift)
     return gift
 }
+
+export async function UpdateLoader ({ params }){
+    const response = await fetch(url + "/people/" + params.id )
+    const gift = await response.json()
+    console.log("UPDATE LOADER:", gift)
+    return gift
+}

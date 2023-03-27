@@ -5,19 +5,32 @@ import Post from "../components/Post";
 
 const Index = (props) => {
     const people = useLoaderData()
-console.log("people", people)
+    console.log("people_id", people._id)
+
     return <>
 
   <div>
     <h1>Your People:</h1>
   </div>
-   <div>{people.map(post => <Post key={post._id} post={post}/>)}
+   <div>{people.map(post => { 
+    return (
+        
+        <div key={post._id}>
+            <Post  post={post}/>
+             <Form action={`/delete/${post._id}`} method="post">
+                <button>Delete</button>
+             </Form>
+        </div>
+       ) 
+    })}
+       
+        
    </div> 
     
     <div>
         <h1>Add New Person</h1>
         
-        <Form className="indexForm" action="/create" method="post">
+        <Form action="/create" method="post">
             <input type="text" name="name" placeholder="Name"/>
             <button>ADD</button>
         </Form>

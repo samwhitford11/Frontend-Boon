@@ -74,5 +74,5 @@ Outlet -- "/places/delete/:id" --> deleteAction
 
 ### Link to Project
 
-[Deployed Backend Page]()
+[Deployed Backend Page](https://boon-backend.onrender.com)
 [Deployed Frontend Page]()

@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import App from "./App"
 import Index from "./pages/Index"
 import Show from "./pages/Show"
-import { IndexLoader, ShowLoader } from "./loaders"
+import { IndexLoader, ShowLoader, UpdateLoader } from "./loaders"
 import { CreateAction, UpdateAction, DeleteAction, GiftCreateAction, GiftUpdateAction, GiftDeleteAction } from "./actions"
 
 const router = createBrowserRouter(

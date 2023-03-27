@@ -7,9 +7,7 @@ const Post = (props) => {
       <div>
           <Link to={`/post/${post._id}`}>
             <h1>{post.name}</h1>
-          </Link>
-          
-          
+          </Link>  
         </div>
     );
   };
@@ -17,4 +15,3 @@ const Post = (props) => {
   export default Post;
 
 
-  //gift.item

@@ -4,6 +4,7 @@ import SingleGiftPost from "../components/singleGiftPost";
 const Show = (props) => {
     const person = useLoaderData()
 console.log("person", person.gifts)
+   
     return(
         <div>
             <h1>{person.name}</h1>
@@ -17,13 +18,13 @@ console.log("person", person.gifts)
                     <input type="text" name="image" placeholder="Image URL"/>
                     <input type="text" name="link" placeholder="Link to item"/>
                     <textarea name='notes' rows='3' placeholder='Notes'></textarea>
-                    <button class="button-27">Add</button>
+                    <button>Add</button>
 
                 </Form>
             </div>
-            <Link to="/">
-                 <button>Return</button>
-            </Link>
+                <Link to="/">
+                    <button>Return</button>
+                </Link>
         </div>
     )
 }
