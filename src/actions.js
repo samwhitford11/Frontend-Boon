@@ -3,13 +3,12 @@ import url from "./url";
 
 // PERSON CREATE ACTION
 export async function CreateAction ({request}){
-    // Gte form data
+    // Get form data
     const formData = await request.formData()
 
     // construct request body
     const newPerson = {
         name: formData.get("name"),
-        // ask about whether or not you'll need gifts here
     }
     // send request to backend
     await fetch(url + "/addperson", {
@@ -68,6 +67,8 @@ export async function DeleteAction ({params}){
 export async function GiftCreateAction ({request}){
     // Get form data
     const formData = await request.formData()
+    console.log("formData" , formData.get("personid"))
+    const personid = formData.personid
 
     // construct request body
     const newGift = {
@@ -77,17 +78,20 @@ export async function GiftCreateAction ({request}){
         notes: formData.get("notes"),
     }
     // send request to backend
-    await fetch(url + "/addgift/:personid", {
+    await fetch(url + "/addgift/" + formData.get("personid") + "/", {
         method: "post",
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
         body: JSON.stringify(newGift)
+        
     })
-    // redirect back to index page
-    return redirect("/")
+    console.log("new gift", newGift)
+    // redirect back to show page
+    return redirect("/post/" + formData.get("personid"))
 }
+
 
 // GIFT UPDATE ACTION
 export async function GiftUpdateAction ({
@@ -96,24 +100,24 @@ export async function GiftUpdateAction ({
         const formData = await request.formData()
 
     // construct request body
-    const newGift = {
+    const updateGift = {
         item: formData.get("item"),
         image: formData.get("image"),
         link: formData.get("link"),
         notes: formData.get("notes"),
     }
     // send request to backend
-    await fetch(url + params.id + "/",
+    await fetch(url + "/gift/" + "/",
     {
         method: "put",
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(newGift)
+        body: JSON.stringify(updateGift)
     })
     // redirect back to index page
-    return redirect("/")
+    return redirect("/post/:id")
 }
 
 // GIFT DELETE ACTION 
@@ -127,5 +131,5 @@ export async function GiftDeleteAction ({params}){
     })
 
     // redirect
-    return redirect("/")
+    return redirect("/post/:id")
 }
