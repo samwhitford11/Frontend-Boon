@@ -1,7 +1,7 @@
 import { Link, useLoaderData, Form} from "react-router-dom";
 import SingleGiftPost from "../components/singleGiftPost";
 import {AiFillEdit} from 'react-icons/ai';
-import {TiDelete} from 'react-icons/ti'
+
 
 
 const Show = (props) => {
@@ -17,26 +17,17 @@ console.log("name", person)
         return (
 
             <div className="border" key={post._id}>
-                <SingleGiftPost  gift={post}/>
+                <SingleGiftPost className="flex justify-center" gift={post}/>
                 
-                <Form className='flex flex-col max-w-[600px] w-full bg-gray-200 p-5' action={`/update/post/${post._id}`} method="post">
-                    <input type="hidden" name="personid" value={person._id}/>
-                    <input type="text" name="item" placeholder="Item"/>
-                    <input type="text" name="image" placeholder="Image URL"/>
-                    <input type="text" name="link" placeholder="Link to item"/>
-                    <textarea name='notes' rows='3' placeholder='Notes'></textarea>
-                <button className="bg-transparent hover:bg-black-500 text-black-700 hover:text-white py-1 px-1">Update<AiFillEdit size={20}/></button>
-                </Form>
-                <Form action={`/delete/post/${post._id}`} method="post">
-                <button className="bg-transparent hover:bg-black-500 text-black-700 hover:text-red-400 py-1 px-1"><TiDelete size={20}/></button>
-                </Form>
+                
+                
             </div>
         )
     })}
     </div> 
     
-    <div>
-            <div className="py-4">
+    <div className="py-4">
+            <div className="py-4 flex justify-center">
                 
                 <Form action="/create/post" method="post" className='flex flex-col max-w-[600px] w-full bg-gray-200 p-5'>
                     <h1>Add New Gift Idea</h1>
@@ -57,3 +48,5 @@ console.log("name", person)
 }
 
 export default Show
+
+// {/* <AiFillEdit size={20}/> */}className="bg-transparent hover:bg-black-500 text-black-700 hover:text-white py-1 px-1"

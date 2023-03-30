@@ -7,7 +7,7 @@ export async function IndexLoader() {
 }
 
 export async function ShowLoader ({ params }){
-    const response = await fetch(url + "/people/" + params.id )
+    const response = await fetch(url + "/people/" + params.id + "/")
     const gift = await response.json()
     console.log("SHOW LOADER:", gift)
     return gift

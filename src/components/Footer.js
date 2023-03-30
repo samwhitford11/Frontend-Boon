@@ -1,7 +1,7 @@
 export default function Footer(){
     return(
         <footer className=" w-full max-w-screen-xl mx-auto p-4 md:py-8 bg-orange-400 text-white">
-            <h2>Never lose track of what's next!</h2>
+            <h2>Track. Give. Celebrate.</h2>
         </footer>
     )
 }
