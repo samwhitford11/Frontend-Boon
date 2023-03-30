@@ -28,7 +28,7 @@ export async function UpdateAction ({
     request, params }){
         // Get form data
         const formData = await request.formData()
-
+        // console.log("params" , params.id)
     // construct request body
     const updatedPerson = {
         name: formData.get("name"),
@@ -67,8 +67,7 @@ export async function DeleteAction ({params}){
 export async function GiftCreateAction ({request}){
     // Get form data
     const formData = await request.formData()
-    console.log("formData" , formData.get("personid"))
-    const personid = formData.personid
+    console.log("test", formData.get("personid"))
 
     // construct request body
     const newGift = {
@@ -87,7 +86,6 @@ export async function GiftCreateAction ({request}){
         body: JSON.stringify(newGift)
         
     })
-    console.log("new gift", newGift)
     // redirect back to show page
     return redirect("/post/" + formData.get("personid"))
 }
@@ -97,7 +95,10 @@ export async function GiftCreateAction ({request}){
 export async function GiftUpdateAction ({
     request, params }){
         // Get form data
-        const formData = await request.formData()
+        let formData = await request.formData()
+
+        let personid = formData.get("personid")
+        
 
     // construct request body
     const updateGift = {
@@ -105,9 +106,10 @@ export async function GiftUpdateAction ({
         image: formData.get("image"),
         link: formData.get("link"),
         notes: formData.get("notes"),
-    }
-    // send request to backend
-    await fetch(url + "/gift/" + "/",
+    } 
+    
+//     // send request to backend
+    await fetch(url + "/gift/" + params.id + "/",
     {
         method: "put",
         headers: {
@@ -116,20 +118,22 @@ export async function GiftUpdateAction ({
         },
         body: JSON.stringify(updateGift)
     })
-    // redirect back to index page
-    return redirect("/post/:id")
+//     // redirect back to show page
+    return redirect("/post/" + personid)
+    // return redirect ("/")
 }
 
 // GIFT DELETE ACTION 
 export async function GiftDeleteAction ({params}){
     // get the id
     const id = params.id
+    console.log("params.id", id)
 
     // send request to delete
-    await fetch(url + id + "/", {
+    await fetch(url + "/gift/" + id + "/", {
         method: "delete"
     })
 
     // redirect
-    return redirect("/post/:id")
+    return redirect("/post/" + params)
 }
