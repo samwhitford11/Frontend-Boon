@@ -10,17 +10,14 @@ console.log("name", person)
     return <>
 
     <div>
-        <h1 className="text-2xl py-4 bg-purple-200 ">{person.name}</h1>
+        <h1 className="text-2xl py-4 bg-purple-200 rounded overflow-hidden shadow-lg">{person.name}</h1>
     </div>
 
     <div>{person.gifts.map(post => {
         return (
 
-            <div className="border" key={post._id}>
+            <div className="" key={post._id}>
                 <SingleGiftPost className="flex justify-center" gift={post}/>
-                
-                
-                
             </div>
         )
     })}
@@ -29,13 +26,18 @@ console.log("name", person)
     <div className="py-4">
             <div className="py-4 flex justify-center">
                 
-                <Form action="/create/post" method="post" className='flex flex-col max-w-[600px] w-full bg-gray-200 p-5'>
-                    <h1>Add New Gift Idea</h1>
+                <Form action="/create/post" method="post" className='flex flex-col max-w-[600px] w-full bg-gray-200 p-5 rounded overflow-hidden shadow-lg'>
+                    <h1 className="text-xl">Add New Gift Idea</h1>
                     <input type="hidden" name="personid" value={person._id}/>
-                    <input className="my-4 py-1 pl-2" type="text" name="item" placeholder="Item"/>
-                    <input className="mb-4 py-1 pl-2" type="text" name="image" placeholder="Image URL"/>
-                    <input className="mb-4 py-1 pl-2" type="text" name="link" placeholder="Link to item"/>
-                    <textarea className="mb-4 py-1 pl-2" name='notes' rows='3' placeholder='Notes'></textarea>
+
+                    <input className="my-4 py-2 pl-2 bg-gray-50 border border-gray-300 text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="item" placeholder="Item"/>
+
+                    <input className="my-1 py-2 pl-2 bg-gray-50 border border-gray-300 text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="image" placeholder="Image URL"/>
+
+                    <input className="my-4 py-2 pl-2 bg-gray-50 border border-gray-300 text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="link" placeholder="Link to item"/>
+
+                    <textarea className="mb-4 py-2 pl-2 bg-gray-50 border border-gray-300 text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name='notes' rows='3' placeholder='Notes'></textarea>
+                    
                     <button className='bg-blue-400 hover:bg-blue-300 text-white font-bold py-1 px-4 border-b-4 border-blue-500 hover:border-blue-300 rounded'>Add</button>
 
                 </Form>
