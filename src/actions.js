@@ -108,7 +108,7 @@ export async function GiftUpdateAction ({
         notes: formData.get("notes"),
     } 
     
-//     // send request to backend
+    // send request to backend
     await fetch(url + "/gift/" + params.id + "/",
     {
         method: "put",
@@ -118,22 +118,37 @@ export async function GiftUpdateAction ({
         },
         body: JSON.stringify(updateGift)
     })
-//     // redirect back to show page
+   // redirect back to show page
     return redirect("/post/" + personid)
-    // return redirect ("/")
 }
 
 // GIFT DELETE ACTION 
-export async function GiftDeleteAction ({params}){
-    // get the id
-    const id = params.id
-    console.log("params.id", id)
+export async function GiftDeleteAction ({
+    request, params }){
+        // Get form data
+        let formData = await request.formData()
 
-    // send request to delete
-    await fetch(url + "/gift/" + id + "/", {
-        method: "delete"
+        let personid = formData.get("personid")
+        
+
+    // construct request body
+    const deleteGift = {
+        item: formData.get("item"),
+        image: formData.get("image"),
+        link: formData.get("link"),
+        notes: formData.get("notes"),
+    } 
+    
+    // send request to backend
+    await fetch(url + "/gift/" + params.id + "/",
+    {
+        method: "delete",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(deleteGift)
     })
-
-    // redirect
-    return redirect("/post/" + params)
+   // redirect back to show page
+    return redirect("/post/" + personid)
 }
