@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const SingleGiftPost = (props) => {
     const gift = props.gift;
     const person = useLoaderData()
-    const navigate = useNavigate()
+    
     return (
       <div className="flex justify-center">
           <Link  
